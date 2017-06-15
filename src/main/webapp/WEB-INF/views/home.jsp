@@ -12,8 +12,10 @@
 <P>  The time on the server is ${serverTime}. </P>
 
 
-<h2>GIT TEST</h2>
-
+	<h2>GIT TEST</h2>
+	<ul>
+		<li>IU</li>
+	</ul>
 
 </body>
 </html>
