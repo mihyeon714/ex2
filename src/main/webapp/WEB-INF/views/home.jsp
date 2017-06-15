@@ -19,6 +19,8 @@
 	<h2>GIT TEST</h2>
 	<ul>
 		<li>IU</li>
+		<li>BugFix_1</li>
+		<li>BugFix_2</li>
 	</ul>
 
 </body>
