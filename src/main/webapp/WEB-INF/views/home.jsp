@@ -6,6 +6,9 @@
 </head>
 <body>
 
+
+<a href="./notice/noticeList?curPage=1">notice리스트 보기</a>
+
 <h1>Master ADD</h1>
 <h1>Master ADD2</h1>
 
@@ -24,6 +27,7 @@
 		<li>master</li>
 		<li>Conflict_1</li>
 	</ul>
+	
 
 </body>
 </html>

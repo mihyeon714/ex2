@@ -15,18 +15,18 @@ import org.springframework.stereotype.Repository;
 import com.choa.util.DBConnect;
 import com.choa.util.RowMaker;
 
-//NoticeDAO noticeDAO = new NoticeDAO();
-@Repository // 멤버변수는 어떻게 해결할것이냐 
+//@Repository //NoticeDAO noticeDAO = new NoticeDAO();
+@Repository("notice")  //NoticeDAO notice = new NoticeDAO();
 public class NoticeDAO {
 	
-	@Inject //만들어진 객체를 type으로 찾아서 주입시켜주세요
+	@Inject
 	private DataSource dataSource;
 	
 	/*
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
-	//@Inject을 통해 주입되니 이 아이는 필요가 없어요
+	//얘네는 xml에 해야해 코드를 볼수가 없으니..
 	*/
 
 

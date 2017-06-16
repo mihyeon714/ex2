@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,8 +22,15 @@ public class NoticeController {
 	
 	//service객체는 하나뿐이면 된다 
 	//@Inject 는 어딘가에 만들어진 객체를 주입해주셈 이라는 말임 
-	@Inject
+	//@Inject
+	@Autowired
 	private NoticeService noticeService;
+	
+	@RequestMapping(value="test")
+	public void test(){
+		System.out.println("noticeService= "+noticeService); //inject 확인
+		noticeService.test(); //DAO 찍는 코드
+	}
 	
 
 	@RequestMapping(value="noticeList",method=RequestMethod.GET)
@@ -43,7 +51,9 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value="noticeWrite",method=RequestMethod.GET)
-	public void noticeWrite(){}
+	public void noticeWrite(Model model){
+		model.addAttribute("path", "Write");
+	}
 	
 	@RequestMapping(value="noticeWrite",method=RequestMethod.POST)
 	public String noticeWrite(NoticeDTO noticeDTO, Model model,RedirectAttributes rd) throws Exception{
@@ -68,9 +78,11 @@ public class NoticeController {
 	
 	//Form 호출
 	@RequestMapping(value="noticeUpdate",method=RequestMethod.GET)
-	public void noticeUpdate(Integer num, Model model) throws Exception{
+	public String noticeUpdate(Integer num, Model model) throws Exception{
 		NoticeDTO noticeDTO = noticeService.noticeView(num); //DTO 하나를 받아오는것
 		model.addAttribute("dto", noticeDTO);
+		model.addAttribute("path", "Update");
+		return "notice/noticeWrite";
 	}
 	
 

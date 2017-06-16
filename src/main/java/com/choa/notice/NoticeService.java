@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.choa.util.PageMaker;
@@ -11,25 +13,17 @@ import com.choa.util.PageMaker;
 //NoticeService noticeService = new NoticeService();
 @Service
 public class NoticeService {
-	
-	//NoticeDAO 객체는 계속 사용할거니까 한번만 생성하면된다 
-	@Inject
+
+	//@Inject
+	@Autowired //타입으로 찾지만
+	@Qualifier("notice")  //이름이 이거인 친구를 찾아요
 	private NoticeDAO noticeDAO;
 	
-	/*
-	public NoticeService() {}
 	
-	//Constructor
-	public NoticeService(NoticeDAO noticeDAO) {
-		this.noticeDAO = noticeDAO;
+	public void test(){
+		System.out.println("noticeDAO= "+noticeDAO);
 	}
 	
-	
-	//Setter
-	public void setNoticeDAO(NoticeDAO noticeDAO) {
-		this.noticeDAO = noticeDAO;
-	}
-	*/
 	
 	//view
 	public NoticeDTO noticeView(int num) throws Exception{
